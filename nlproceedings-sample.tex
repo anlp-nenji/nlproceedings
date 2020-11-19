@@ -1,0 +1,93 @@
+%#!platex
+% NLProceedings サンプル文書．パブリックドメイン．
+\documentclass[
+  platex, dvipdfmx,  % ワークフローは必ず明示的に指定する
+]{nlproceedings}
+
+% パッケージ
+\usepackage{graphicx,xcolor}  % グラフィックス関連
+\usepackage{bxjalipsum}       % ダミーテキスト
+\usepackage{pxrubrica}        % ルビ
+\usepackage{url}
+
+% 著者用マクロ
+\newcommand{\pkg}[1]{\textsf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{\pkg{NLProceedings}文書クラス サンプル文書}
+\author{%
+  言語太郎 \\ 言語大 \\ \texttt{taro@example.com}\and
+  言語次郎 \\ 言語大 \\ \texttt{jiro@example.com}}
+
+\begin{document}
+
+\maketitle
+
+\section{はじめに}
+
+\pkg{NLProceedings}文書クラスはW3Cにより策定されている『日本語組版の要件』%
+\cite{JLREQ}に準拠することを目指す\pkg{jlreq}クラスをベースにしている．
+本文書クラスでは紙面スペースの都合上，多くの余白値をかなり詰めるように設定
+しており，例えば行間は\ruby{外国人参政権}{がい|こく|じん|さん|せい|けん}の
+ようにルビを振るとほとんど余裕がない．
+
+さてNLP分野の論文では，単純なテキストのみならず，しばしば数式
+%
+\begin{equation}
+P(B\mid A) = \frac{P(A\mid B)P(B)}{P(A)}
+\end{equation}
+%
+や箇条書き
+%
+\begin{itemize}
+\item 第一の項目
+\item 第二の項目
+\end{itemize}
+%
+といった構造も用いられるが，これらもよく知られた文書クラス（例えば
+\pkg{jsarticle}）等と同様のシンタックスで利用できる．
+
+\subsection{図表の挿入}
+
+図の挿入は通常\pkg{graphicx}パッケージによって行う（図\ref{fig:sample}）．
+クラスオプションにワークフロー（\code{dvipdfmx}等）を指定していれば，
+各パッケージを読み込む際に何度も同じオプションを指定する必要はない．
+%
+\begin{figure}[h]
+\centering
+\includegraphics[width=3cm]{example-image-a}
+\caption{何らかの図}
+\label{fig:sample}
+\end{figure}
+
+表組みももちろん利用できるが，図とは異なりキャプションは表本体の上に付ける
+（表\ref{tab:sample}）．
+%
+\begin{table}[h]
+\centering
+\caption{適当な表}
+\label{tab:sample}
+\begin{tabular}{ll}
+\hline
+日本語 & Japanese \\
+英語 & English \\
+\hline
+\end{tabular}
+\end{table}
+
+本文書クラスの仕様については\code{README.md}を参照されたい．以下，いくらか
+長さのある文章を組版したときの様子を確認するためのダミーテキストである．
+
+\section{ダミーテキスト}
+
+\jalipsum[1-3]{wagahai}
+
+\jalipsum[4-23]{wagahai}
+
+\begin{thebibliography}{9}
+\bibitem{JLREQ}
+  W3C日本語組版タスクフォース．日本語組版の要件（日本語版）．
+  \url{https://www.w3.org/TR/jlreq/}，2020．（2020-11-09閲覧）
+\end{thebibliography}
+
+\end{document}
