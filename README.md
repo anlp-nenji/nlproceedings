@@ -1,12 +1,8 @@
-# NLProceedings 文書クラス（v0.4.0 2020-11-19）
+# NLP2021 文書クラス（v0.4.0 2020-11-19）
 
 ## 概要
 
-言語処理学会の年次大会予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
-
-### 注意
-
-これは開発版リポジトリです．本リポジトリで配布されている文書クラスを利用して，**言語処理学会提出用の原稿を作成することはできません**．大会提出用原稿作成には必ず大会ウェブサイトで配布されている規定文書クラスを利用してください．
+[言語処理学会第27回年次大会 (NLP2021)](https://www.anlp.jp/nlp2021/) 予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
 
 ## 動作要件
 
@@ -20,8 +16,8 @@
 
 本文書クラスには，仕上がりを確認するためのサンプル文書が付属しています．同文書は，そのままテンプレートとして用いられることも想定しています．
 
-* ソース：[nlproceedings-sample.tex](./nlproceedings-sample.tex)
-* PDF：[nlproceedings-sample.pdf](./nlproceedings-sample.pdf)
+* ソース：[nlp2021-sample.tex](./nlp2021-sample.tex)
+* PDF：[nlp2021-sample.pdf](./nlp2021-sample.pdf)
 
 ## 使い方
 
@@ -35,21 +31,21 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ```tex
 %#!platex
-\documentclass[platex,dvipdfmx]{nlproceedings}
+\documentclass[platex,dvipdfmx]{nlp2021}
 ```
 
 * upLaTeX + dvipdfmx を使用する場合
 
 ```tex
 %#!uplatex
-\documentclass[uplatex,dvipdfmx]{nlproceedings}
+\documentclass[uplatex,dvipdfmx]{nlp2021}
 ```
 
 * LuaLaTeX を使用する場合
 
 ```tex
 %#!lualatex
-\documentclass[lualatex]{nlproceedings}
+\documentclass[lualatex]{nlp2021}
 ```
 
 またワークフロー指定以外のクラスオプションも利用可能で，そのまま jlreq クラスに渡されます．ただし，基本版面設計に関わるようなオプション（例えば紙面サイズ，フォントサイズ，段組み数に関わるもの）は無効化されています．使わないでください．

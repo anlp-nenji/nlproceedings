@@ -1,5 +1,5 @@
 %%
-%% This is file `nlproceedings.cls'.
+%% This is file `nlp2021.cls'.
 %%
 %% Copyright 2020 Takuto ASAKURA
 %%
@@ -13,11 +13,11 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlproceedings} {2020/11/19} {0.4.0}
-  {Japanese document class for the proceedings of ANLP}
+\ProvidesExplPackage {nlp2021} {2020/11/19} {0.4.0}
+  {Japanese document class for the proceedings of NLP2021}
 
 %% メッセージ
-\msg_new:nnn { nlproceedings } { disallowed-option }
+\msg_new:nnn { nlp2021 } { disallowed-option }
   { Option~ '#1'~ is~ disallowed;~ skipping. }
 
 %% (u)pTeX 用パッチ類
@@ -50,17 +50,17 @@
     \seq_gput_right:Nx \g__nlpr_disallowed_options_seq { \tl_to_str:n {#1} }
   }
 
-\keys_define:nn { nlproceedings / option }
+\keys_define:nn { nlp2021 / option }
   {
     unknown .code:n = \__nlpr_process_class_option:
   }
 \cs_new:Nn \__nlpr_process_class_option:
   {
     \seq_if_in:NoTF \g__nlpr_disallowed_options_seq { \l_keys_key_str }
-      { \msg_warning:nnx { nlproceedings } { disallowed-option } { \l_keys_key_str } }
+      { \msg_warning:nnx { nlp2021 } { disallowed-option } { \l_keys_key_str } }
       { \clist_gput_right:No \g__nlpr_options_clist { \CurrentOption } }
   }
-\ProcessKeysOptions { nlproceedings / option }
+\ProcessKeysOptions { nlp2021 / option }
 \PassOptionsToClass { \g__nlpr_options_clist } { jlreq }
 
 %% 基本版面設計
