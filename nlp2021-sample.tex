@@ -49,6 +49,10 @@ P(B\mid A) = \frac{P(A\mid B)P(B)}{P(A)}
 
 \subsection{図表の挿入}
 
+図表についても通常の\LaTeX と同じ方法を用いることができる．
+
+\subsubsection{図について}
+
 図の挿入は通常\pkg{graphicx}パッケージによって行う（図\ref{fig:sample}）．
 クラスオプションにワークフロー（\code{dvipdfmx}等）を指定していれば，
 各パッケージを読み込む際に何度も同じオプションを指定する必要はない．
@@ -59,6 +63,8 @@ P(B\mid A) = \frac{P(A\mid B)P(B)}{P(A)}
 \caption{何らかの図}
 \label{fig:sample}
 \end{figure}
+
+\subsubsection{表について}
 
 表組みももちろん利用できるが，図とは異なりキャプションは表本体の上に付ける
 （表\ref{tab:sample}）．

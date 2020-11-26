@@ -13,7 +13,7 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlp2021} {2020/11/19} {0.4.0}
+\ProvidesExplPackage {nlp2021} {2020/12/26} {0.5.0}
   {Japanese document class for the proceedings of NLP2021}
 
 %% メッセージ
@@ -56,6 +56,9 @@
   }
 \cs_new:Nn \__nlpr_process_class_option:
   {
+    % 2020年に変更 \l_keys_key_tl -> \l_keys_key_str
+    \cs_if_exist:NF \l_keys_key_str
+      { \cs_set_eq:NN \l_keys_key_str \l_keys_key_tl }
     \seq_if_in:NoTF \g__nlpr_disallowed_options_seq { \l_keys_key_str }
       { \msg_warning:nnx { nlp2021 } { disallowed-option } { \l_keys_key_str } }
       { \clist_gput_right:No \g__nlpr_options_clist { \CurrentOption } }
@@ -97,7 +100,7 @@
   {\jlreq@keepbaselineskip{\LARGE}\sffamily\gtfamily\@title\par}%
   \vskip\baselineskip
   {\jlreq@keepbaselineskip{\large}%
-    \lineskip .5\jlreq@zh
+    \lineskip .5\zh
     \begin{tabular}[t]{c}%
       \@author
     \end{tabular}%
