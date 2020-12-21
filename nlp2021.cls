@@ -139,6 +139,34 @@
   lines=2,
 }
 
+%% 参考文献
+\renewenvironment{thebibliography}[1]{%
+  \jlreq@oldfontcommand@enable
+  \section*{\refname}%
+  \@mkboth{\refname}{\refname}%
+  \bibfont
+  \list{\@biblabel{\@arabic\c@enumiv}}%
+      {\settowidth\labelwidth{\@biblabel{#1}}%
+      \labelsep=1\zw
+      \leftmargin\labelwidth
+      \advance\leftmargin\labelsep
+      \itemindent=0pt
+      \@openbib@code
+      \usecounter{enumiv}%
+      \let\p@enumiv\@empty
+      \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty\clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m
+}{%
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist
+  \jlreq@oldfontcommand@disable
+}
+\tl_set:Nn \bibfont { \small }
+
 %% 各種寸法
 \AtBeginDocument{
   \setlength{\abovedisplayskip}{6pt plus 3pt minus 3pt}
