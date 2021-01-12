@@ -64,6 +64,21 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 \renewcommand{\bibfont}{\normalsize}
 ```
 
+### 長い見出しへの対応
+
+`\section` や `\subsection` に与える「見出し文字列」が長く，紙面において複数行に渡るような場合，デフォルトの行取り設定では上下のマージンが小さくなってしまい見栄えが悪くなることがあります．そのような場合は，jlreq クラスの `\ModifyHeading` コマンドを用いて一時的に行取り設定を変更してください．
+
+```tex
+\SaveHeading{section}{\restoresection}
+\ModifyHeading{section}{
+  lines=3,  % この数字を十分に大きくする
+}
+\section{長い長い長い長い長い長い長い長い長い長い長い長い長い長い見出し}
+\restoresection
+```
+
+なお対象がサブセクションの場合は上記コードの “section” をすべて “subsection” に読み替えてください．
+
 ## バグ報告
 
 本文書クラスに関するバグや不具合，あるいは改善提案等は GitHub 上の開発リポジトリまでご報告ください．
