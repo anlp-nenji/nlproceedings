@@ -1,8 +1,12 @@
-# NLP2022 文書クラス（v1.0.0 2021-11-30）
+# NLProceedings 文書クラス（v1.0.0 2021-11-30）
 
 ## 概要
 
-[言語処理学会第28回年次大会 (NLP2022)](https://www.anlp.jp/nlp2022/) 予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
+言語処理学会の年次大会予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
+
+### 注意
+
+これは開発版リポジトリです．本リポジトリで配布されている文書クラスを利用して，**言語処理学会提出用の原稿を作成することはできません**．大会提出用原稿作成には必ず大会ウェブサイトで配布されている規定文書クラスを利用してください．
 
 ## 動作要件
 
@@ -16,8 +20,8 @@
 
 本文書クラスには，仕上がりを確認するためのサンプル文書が付属しています．同文書は，そのままテンプレートとして用いられることも想定しています．
 
-* ソース：[nlp2022-sample.tex](./nlp2022-sample.tex)
-* PDF：[nlp2022-sample.pdf](./nlp2022-sample.pdf)
+* ソース：[nlproceedings-sample.tex](./nlproceedings-sample.tex)
+* PDF：[nlproceedings-sample.pdf](./nlproceedings-sample.pdf)
 
 ## 使い方
 
@@ -31,21 +35,21 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ```tex
 %#!platex
-\documentclass[platex,dvipdfmx]{nlp2022}
+\documentclass[platex,dvipdfmx]{nlproceedings}
 ```
 
 **upLaTeX + dvipdfmx を使用する場合**
 
 ```tex
 %#!uplatex
-\documentclass[uplatex,dvipdfmx]{nlp2022}
+\documentclass[uplatex,dvipdfmx]{nlproceedings}
 ```
 
 **LuaLaTeX を使用する場合**
 
 ```tex
 %#!lualatex
-\documentclass[lualatex]{nlp2022}
+\documentclass[lualatex]{nlproceedings}
 ```
 
 また，本文書クラスには独自オプションがあります．

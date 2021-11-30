@@ -1,5 +1,5 @@
 %%
-%% This is file `nlp2022.cls'.
+%% This is file `nlproceedings.cls'.
 %%
 %% Copyright 2020-2021 Takuto ASAKURA
 %%
@@ -13,11 +13,11 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlp2022} {2021-11-30} {1.0.0}
-  {Japanese document class for the proceedings of NLP2022}
+\ProvidesExplPackage {nlproceedings} {2021-11-30} {1.0.0}
+  {Japanese document class for the proceedings of nlproceedings}
 
 %% メッセージ
-\msg_new:nnn { nlp2022 } { disallowed-option }
+\msg_new:nnn { nlproceedings } { disallowed-option }
   { Option~ '#1'~ is~ disallowed;~ skipping. }
 
 %% (u)pTeX 用パッチ類
@@ -58,18 +58,18 @@
     \cs_if_exist:NF \l_keys_key_str
       { \cs_set_eq:NN \l_keys_key_str \l_keys_key_tl }
     \seq_if_in:NoTF \g__nlpr_disallowed_options_seq { \l_keys_key_str }
-      { \msg_warning:nnx { nlp2022 } { disallowed-option } { \l_keys_key_str } }
+      { \msg_warning:nnx { nlproceedings } { disallowed-option } { \l_keys_key_str } }
       { \clist_gput_right:No \g__nlpr_options_clist { \CurrentOption } }
   }
 
 % オプション実行
-\keys_define:nn { nlp2022 / option }
+\keys_define:nn { nlproceedings / option }
   {
     english .bool_gset:N = \g_nlpr_english_bool,
     english .default:n = true,
     unknown .code:n = \__nlpr_process_class_option:
   }
-\ProcessKeysOptions { nlp2022 / option }
+\ProcessKeysOptions { nlproceedings / option }
 \PassOptionsToClass { \g__nlpr_options_clist } { jlreq }
 
 
