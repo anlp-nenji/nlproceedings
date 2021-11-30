@@ -1,7 +1,7 @@
 %%
-%% This is file `nlp2021.cls'.
+%% This is file `nlp2022.cls'.
 %%
-%% Copyright 2020 Takuto ASAKURA
+%% Copyright 2020-2021 Takuto ASAKURA
 %%
 %% This class is distributed under the MIT License.
 %%
@@ -13,11 +13,11 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlp2021} {2020-12-21} {0.7.0}
-  {Japanese document class for the proceedings of NLP2021}
+\ProvidesExplPackage {nlp2022} {2021-11-30} {1.0.0}
+  {Japanese document class for the proceedings of NLP2022}
 
 %% メッセージ
-\msg_new:nnn { nlp2021 } { disallowed-option }
+\msg_new:nnn { nlp2022 } { disallowed-option }
   { Option~ '#1'~ is~ disallowed;~ skipping. }
 
 %% (u)pTeX 用パッチ類
@@ -58,18 +58,18 @@
     \cs_if_exist:NF \l_keys_key_str
       { \cs_set_eq:NN \l_keys_key_str \l_keys_key_tl }
     \seq_if_in:NoTF \g__nlpr_disallowed_options_seq { \l_keys_key_str }
-      { \msg_warning:nnx { nlp2021 } { disallowed-option } { \l_keys_key_str } }
+      { \msg_warning:nnx { nlp2022 } { disallowed-option } { \l_keys_key_str } }
       { \clist_gput_right:No \g__nlpr_options_clist { \CurrentOption } }
   }
 
 % オプション実行
-\keys_define:nn { nlp2021 / option }
+\keys_define:nn { nlp2022 / option }
   {
     english .bool_gset:N = \g_nlpr_english_bool,
     english .default:n = true,
     unknown .code:n = \__nlpr_process_class_option:
   }
-\ProcessKeysOptions { nlp2021 / option }
+\ProcessKeysOptions { nlp2022 / option }
 \PassOptionsToClass { \g__nlpr_options_clist } { jlreq }
 
 
@@ -104,7 +104,7 @@
   \newpage\null
   \vskip 2\baselineskip%
   \begin{center}%
-  {\jlreq@keepbaselineskip{\LARGE}\sffamily\gtfamily\@title\par}%
+  {\jlreq@keepbaselineskip{\LARGE}\sffamily\gtfamily\bfseries\@title\par}%
   \vskip\baselineskip
   {\jlreq@keepbaselineskip{\large}%
     \lineskip .5\zh

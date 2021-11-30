@@ -1,10 +1,11 @@
 %#!platex
-% NLP2021 サンプル文書．パブリックドメイン．
+% NLP2022 サンプル文書．パブリックドメイン．
 \documentclass[
   platex, dvipdfmx,  % ワークフローは必ず明示的に指定する
-]{nlp2021}
+]{nlp2022}
 
 % パッケージ
+\usepackage{jlreq-deluxe}     % 多書体化（otf パッケージは使用しない）
 \usepackage{graphicx,xcolor}  % グラフィックス関連
 \usepackage{bxjalipsum}       % ダミーテキスト
 \usepackage{pxrubrica}        % ルビ
@@ -14,10 +15,10 @@
 \newcommand{\pkg}[1]{\textsf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
 
-\title{\pkg{NLP2021}文書クラス サンプル文書}
+\title{\pkg{NLP2022}文書クラス サンプル文書}
 \author{%
-  言語太郎 \\ 言語大 \\ \texttt{taro@example.com}\and
-  言語次郎 \\ 言語大 \\ \texttt{jiro@example.com}}
+  言語太郎 \\ 言語大 \\ \texttt{taro@nlp.example.com}\and
+  言語花子 \\ 言語大 \\ \texttt{hanako@nlp.example.com}}
 
 \begin{document}
 
@@ -25,7 +26,7 @@
 
 \section{はじめに}
 
-\pkg{NLP2021}文書クラスはW3Cにより策定されている『日本語組版の要件』%
+\pkg{NLP2022}文書クラスはW3Cにより策定されている『日本語組版の要件』%
 \cite{JLREQ}に準拠することを目指す\pkg{jlreq}クラスをベースにしている．
 本文書クラスでは紙面スペースの都合上，多くの余白値をかなり詰めるように設定
 しており，例えば行間は\ruby{外国人参政権}{がい|こく|じん|さん|せい|けん}の

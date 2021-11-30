@@ -1,8 +1,8 @@
-# NLP2021 文書クラス（v0.7.0 2020-12-21）
+# NLP2022 文書クラス（v1.0.0 2021-11-30）
 
 ## 概要
 
-[言語処理学会第27回年次大会 (NLP2021)](https://www.anlp.jp/nlp2021/) 予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
+[言語処理学会第28回年次大会 (NLP2022)](https://www.anlp.jp/nlp2022/) 予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
 
 ## 動作要件
 
@@ -16,8 +16,8 @@
 
 本文書クラスには，仕上がりを確認するためのサンプル文書が付属しています．同文書は，そのままテンプレートとして用いられることも想定しています．
 
-* ソース：[nlp2021-sample.tex](./nlp2021-sample.tex)
-* PDF：[nlp2021-sample.pdf](./nlp2021-sample.pdf)
+* ソース：[nlp2022-sample.tex](./nlp2022-sample.tex)
+* PDF：[nlp2022-sample.pdf](./nlp2022-sample.pdf)
 
 ## 使い方
 
@@ -31,21 +31,21 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ```tex
 %#!platex
-\documentclass[platex,dvipdfmx]{nlp2021}
+\documentclass[platex,dvipdfmx]{nlp2022}
 ```
 
 **upLaTeX + dvipdfmx を使用する場合**
 
 ```tex
 %#!uplatex
-\documentclass[uplatex,dvipdfmx]{nlp2021}
+\documentclass[uplatex,dvipdfmx]{nlp2022}
 ```
 
 **LuaLaTeX を使用する場合**
 
 ```tex
 %#!lualatex
-\documentclass[lualatex]{nlp2021}
+\documentclass[lualatex]{nlp2022}
 ```
 
 また，本文書クラスには独自オプションがあります．
@@ -62,6 +62,16 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ```tex
 \renewcommand{\bibfont}{\normalsize}
+```
+
+### 多書体化（多ウェイト化）に関して
+
+旧来の日本語文書クラスでは，多書体化（多ウェイト化）を行う場合は `otf` パッケージが広く用いられてきました．しかし，同パッケージを本文書クラスと併用すると，本クラスの意図する組版を実現できなくなります．特に，**1行あたりの文字数が変化してしまうため，学会指定の要件を満たさなくなる可能性が高いです．そのため otf パッケージは原則使用しないでください．**
+
+本クラスで多書体化（多ウェイト化）を実現したい場合は **otf パッケージの代わりに [jlreq-deluxe パッケージ](https://github.com/h20y6m/jlreq-deluxe/blob/master/README-ja.md)を使用する**ようにしてください．
+
+```tex
+\usepackage{jlreq-deluxe}
 ```
 
 ### 長い見出しへの対応
