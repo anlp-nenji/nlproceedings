@@ -123,6 +123,7 @@
 %% 英語対応
 \bool_if:NT \g_nlpr_english_bool
   {
+    \tl_set:Nn \abstractname { Abstract }
     \tl_set:Nn \contentsname { Table~ of~ Contents }
     \tl_set:Nn \refname { References }
     \tl_set:Nn \indexname { Index }
