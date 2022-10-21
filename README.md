@@ -1,12 +1,8 @@
-# NLProceedings 文書クラス（v1.0.0 2021-11-30）
+# NLP2023 文書クラス（v1.0.0 2022-09-29）
 
 ## 概要
 
-言語処理学会の年次大会予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
-
-### 注意
-
-これは開発版リポジトリです．本リポジトリで配布されている文書クラスを利用して，**言語処理学会提出用の原稿を作成することはできません**．大会提出用原稿作成には必ず大会ウェブサイトで配布されている規定文書クラスを利用してください．
+[言語処理学会第29回年次大会 (NLP2023)](https://www.anlp.jp/nlp2023/) 予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
 
 ## 動作要件
 
@@ -20,8 +16,8 @@
 
 本文書クラスには，仕上がりを確認するためのサンプル文書が付属しています．同文書は，そのままテンプレートとして用いられることも想定しています．
 
-* ソース：[nlproceedings-sample.tex](./nlproceedings-sample.tex)
-* PDF：[nlproceedings-sample.pdf](./nlproceedings-sample.pdf)
+* ソース：[nlp2023-sample.tex](./nlp2023-sample.tex)
+* PDF：[nlp2023-sample.pdf](./nlp2023-sample.pdf)
 
 ## 使い方
 
@@ -35,21 +31,21 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ```tex
 %#!platex
-\documentclass[platex,dvipdfmx]{nlproceedings}
+\documentclass[platex,dvipdfmx]{nlp2023}
 ```
 
 **upLaTeX + dvipdfmx を使用する場合**
 
 ```tex
 %#!uplatex
-\documentclass[uplatex,dvipdfmx]{nlproceedings}
+\documentclass[uplatex,dvipdfmx]{nlp2023}
 ```
 
 **LuaLaTeX を使用する場合**
 
 ```tex
 %#!lualatex
-\documentclass[lualatex]{nlproceedings}
+\documentclass[lualatex]{nlp2023}
 ```
 
 また，本文書クラスには独自オプションがあります．
@@ -92,6 +88,10 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 ```
 
 なお対象がサブセクションの場合は上記コードの “section” をすべて “subsection” に読み替えてください．
+
+
+## Overleafの使用時
+* platex + dvipdfmx を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
 
 ## バグ報告
 
