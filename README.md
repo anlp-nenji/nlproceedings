@@ -90,8 +90,8 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 なお対象がサブセクションの場合は上記コードの “section” をすべて “subsection” に読み替えてください．
 
 
-## Overleafの使用時
-* platex + dvipdfmx を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
+### Overleafの使用時
+* [platex + dvipdfmx](https://github.com/wtsnjp/nlproceedings/tree/nlp2023#文書クラス宣言とクラスオプション) を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
 
 ## バグ報告
 
