@@ -1,0 +1,463 @@
+%#!platex
+% NLP2023 サンプル文書．パブリックドメイン．
+\documentclass[
+  platex, dvipdfmx,  % ワークフローは必ず明示的に指定する
+]{nlp2023}
+%english option
+%\documentclass[platex, dvipdfmx, english]{nlp2023}
+%#!uplatex
+%\documentclass[uplatex,dvipdfmx]{nlp2023}
+%#!lualatex
+%\documentclass[lualatex]{nlp2023}
+
+
+% パッケージ
+\usepackage{graphicx,xcolor}  % グラフィックス関連
+\usepackage{pxrubrica}        % ルビ
+\usepackage{url}
+
+%% option 不要な場合はコメントアウト
+\usepackage{jlreq-deluxe}     % 多書体化（otf パッケージは使用しない）
+\usepackage{bxjalipsum}       % ダミーテキスト
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true, 
+    citecolor=blue, 
+    linkcolor=blue,
+    urlcolor=blue,
+	pdfborder={0 0 0},
+}
+\usepackage[verb]{bxghost}    % \verb 前後に適切な和欧文間スペース
+
+% 参考文献のフォントサイズを指定
+%\renewcommand{\bibfont}{\normalsize} % 標準サイズ
+%\renewcommand{\bibfont}{\footnotesize} % より小さく
+
+% \emph をゴシックかつ太字に（比較的新しい LaTeX が必要）
+\DeclareEmphSequence{\gtfamily\sffamily\bfseries}
+
+% 著者用マクロをここに入れる
+\newcommand{\pkg}[1]{\textsf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\comment}[1]{\textcolor{red}{#1}}
+%%%%%%%
+
+
+\title{\pkg{NLP2023}文書クラス サンプル文書}
+
+\author{%
+  佐藤□□□${}^{1}$　鈴木□□${}^{1}$　高橋□□□${}^{2}$　田中□□□□${}^{4}$\\
+　伊藤□□□${}^{1,3,4}$　渡辺□□□□${}^{1,3,4}$\\
+${}^{1}$○○○○○○○○○○○○○大学大学院
+　${}^{2}$△△△△△△△△△大学 言語処理学部\\
+${}^{3}$△△△△△△△△△△△△△△△△△△△株式会社 　${}^{4}$○○○○○○研究所\\ \texttt{\{sato,suzuki,ito\}@example1.jp}
+　\texttt{takahashi@example2.jp}\\
+　\texttt{\{tanaka,watanabe\}@example3.jp}}
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+NLP2022より，読者の論文理解を促進するため，所定のフォーマットの一部として投稿論文の概要を記載することにした（NLP2021までは概要は記載する必要がなく，ほぼ全ての論文で概要が存在しなかった）．
+分量の目安は日本語／英語ともに「8〜13行」とする．概要が8〜13行を満たさなくても賞選考対象外や不採択になることはない．ただし，極端に短い／長い概要にならないように留意すること．
+日本語の場合は，文書クラスにより一行23文字に設定されているため，161文字から299文字相当になる．
+\end{abstract}
+
+\section{はじめに}
+この文書は，言語処理学会年次大会への投稿論文を作成する際のインストラクションである．
+NLP2021より，賞選考コストの削減の観点から，投稿論文のフォーマットを規定する．
+そのため，規定のフォーマットを満たす年次大会論文投稿用文書クラス（LaTeX版）およびテンプレート（Word版）を配布する．
+この文書自体が当該年次大会論文投稿用文書クラス・テンプレートを用いて作成されている．
+よって，この文書を参考に投稿論文の原稿を作成することを推奨する．
+なお，LaTeX版文書クラスでの原稿作成を推奨する．
+
+\subsection{LaTeX版文書クラス}
+LaTeX版は，W3Cにより策定されている『日本語組版の要件』\cite{JLREQ}に準拠することを目指す\pkg{jlreq}クラスをベースにしている．
+ただし，本文書クラスでは紙面スペースの都合上，余白値をかなり詰めるように設定している．
+例えば，行間は\ruby{外国人参政権}{がい|こく|じん|さん|せい|けん}のようにルビを振れる最小限の余白に設定してある．
+
+自然言語処理分野の論文では，単純なテキストのみならず，しばしば数式
+%
+\begin{equation}
+P(B\mid A) = \frac{P(A\mid B)P(B)}{P(A)}
+\end{equation}
+%
+や箇条書き
+%
+\begin{itemize}
+\item 第1の項目
+\item 第2の項目
+\end{itemize}
+%
+といった構造も用いられるが，LaTeX版ではこれらもよく知られた文書クラス（例えば\pkg{jsarticle}等）と同様のシンタックスで利用できる．
+
+LaTeX版文書クラスの仕様の詳細については\code{README-latex.md}を参照されたい．
+
+
+\subsection{Word版テンプレート}
+Word版テンプレートは，前述のLaTeX用に定義された文書クラスに準拠して作成している．
+Word版でも，数式や箇条書きなどはWord上の機能を用いて挿入することができる．
+
+LaTeX版文書クラスでの禁止事項およびWord版で投稿される論文が満たすべき規定については，\ref{sec:contents-format1}節および\ref{sec:contents-format2}節に詳述する．
+
+
+\subsection{クレジット}
+LaTeX版の文書クラス (\code{nlp*.cls}) は，東京大学宮尾研究室 朝倉卓人氏のご厚意により年次大会用に提供していただいた．
+
+また，Word版のテンプレートはLaTeX版のフォーマットに従って理化学研究所 吉野幸一郎氏により作成していただいた．
+
+
+
+
+\section{投稿論文の必須要件}
+\label{sec:contents-format1}
+
+投稿論文に関する規定には，必ず満たさなければいけない「必須要件」と，賞選考のために満たすことを前提とする要件の2種類がある．
+本節では，必ず満たす必要のある「必須要件」について述べる．
+
+\begin{enumerate}
+\item 原稿は本文は4ページ以内，本文と謝辞・参考文献を含めて5ページ以内，付録は独立した1ページ以内
+\item 各ページの余白は上下3\,cm，左右2\,cm以上
+\end{enumerate}
+
+1に関しては，本文と謝辞・参考文献を合わせて5ページの原稿を投稿することができるが，5ページ目に本文が入ってはいけないことを意味する．
+また，本文および謝辞・参考文献とは別に，著者が望む場合は付録 (Appendix)\footnote{付録に関しては，\ref{sec:appendix}節を参照のこと．}を1ページつけることができる．つまり，最大で6ページの原稿を投稿することができる．
+なお，謝辞は参考文献のページに含めてもよい．
+つまり，本文だけで4ページをフルに使い切り，残りの1ページで謝辞＋参考文献を記載することができる．
+いずれにしても，本文＋謝辞＋参考文献で最大5ページであり，本文は4ページを超えることはできない．
+
+
+2に関しては，投稿論文に含まれる全てのページに対して余白の規定を満たす必要がある（付録も含む）．
+
+本節記載の1および2の要件を満たしていない場合は，不採択となる可能性がある．
+投稿時には十分に気をつけて投稿すること．
+% 軽微かつ容易に修正可能な場合は，プログラム委員会で予告なく原稿を修正する可能性がある（その場合は発表取り消しにはならない）．
+
+
+
+\section{投稿論文の体裁}
+\label{sec:contents-format2}
+\ref{sec:contents-format1}節冒頭で述べた通り，論文の体裁に関する規定には，必ず満たさなければいけない「必須要件」と，賞選考のために満たすことを前提とする要件の2種類がある．
+本節では，「賞選考のために満たすことを前提とする要件」を述べる．
+
+賞選考コストの削減の観点から，投稿論文のフォーマットを規定する．
+その詳細を本節に記載する．
+規定フォーマットに明らかに従っていない場合は，\emph{一部の賞の選考過程から除外されることがある．}
+
+ただし，賞選考のコスト削減の観点から生じた施策なので，本節に記す規定フォーマットを満たさない原稿であっても，前節の必須要件が満たされていれば\emph{投稿論文が不採択となることはない}．
+
+
+
+\subsection{本文}
+
+\paragraph{LaTeX版}
+文書クラスが定義する以下についての変更は禁止とする（各項目の規定サイズについてはWord版の値を参照のこと）．
+\begin{itemize}
+\item 用紙サイズ
+\item フォントサイズ
+\item 欧文フォント（利用するフォントによって文字数に異なりが生じるため）
+\item 余白の大きさ
+\item 行間，行数，文字数（特に\code{baselinestretch}を変更しないこと） $\rightarrow$ 1ページの行数は45行, 各行の文字数は全角23文字である．
+\end{itemize}
+
+
+\paragraph{Word版}
+LaTeX版で定義された文書クラスと同等のテンプレートを実現するため以下のような定義を行っている．
+これらを変更することは禁止とする．
+\begin{itemize}
+    \item 用紙サイズはA4，組版は2段組とする．
+    \item フォントサイズは以下のように定める．
+    \begin{itemize}
+        \item 論文表題: 16\,pt
+        \item 著者名: 10--11\,pt
+        \item 大見出し: 14\,pt
+        \item 中見出し: 12\,pt
+        \item 小見出し: 11\,pt
+        \item 本文: 10\,pt
+        \item その他本文中の数式などの文字: 10\,pt
+        \item 図表等のキャプション: 10\,pt
+        \item 上記以外のクラス，例えばアルゴリズムなどを記述する場合の文字: 10\,pt以上
+    \end{itemize}
+    \item 行数は45行, 各行の文字数は全角23文字
+    \item ルビを振る場合，行間を固定値とし，その値を14.9\,ptとする．設定する場合，「段落」$\xrightarrow{}$「インデントと行間の変更」$\xrightarrow{}$「行間」から指定する．
+\end{itemize}
+また，フォントについては以下のように設定している．
+\begin{itemize}
+\item タイトル，見出しのフォントはMSゴシック + Arial
+\item 本文のフォントはMS明朝 + Times New Roman，強調はMSゴシック
+\end{itemize}
+
+
+\subsection{Writing in English}
+This paragraph shows an English sample.
+There is no problem with writing your manuscript in English.
+If you write in LaTeX, please use the distributed document class with the \code{english} option:
+\begin{quote}
+\verb|\documentclass[|\\
+\verb|  platex, dvipdfmx, english]{nlp2022}|
+\end{quote}
+Any changes on the document class (\code{.cls}) are prohibited.
+If you write in Microsoft Word, please use the distributed sample file without changing its layout.
+Using ``Times New Roman'' is suggested.
+
+なお英語での原稿作成について，LaTeX版の場合は配布する文書クラスを用いて記載すれば問題ない．Word版の場合は配布テンプレートを用いて，レイアウト等については変更しないこと．本文は，文書クラスで規定される通りTimes New Romanで記載のこと．
+
+
+
+\subsection{図，表，例文等}
+図，表，例文等，本文とは独立に表記される領域における文字サイズも，基本的には本文と同じ10\,ptを推奨する．
+
+ただし，図や例文などは，別のツールで作成したオブジェクトを原稿に埋め込むため，中の文字の正確なサイズを知るのは難しいと想定されるので図中のフォントサイズは規定しない（10\,pt以下の文字サイズがあっても規定違反とはしない）．
+ただし，A4印刷で読める大きさは担保するように留意すること．
+
+表に関しても，情報を多く記載する必要性がある場合，\verb|\small| (9\,pt) 相当のフォントサイズまでは必要であれば利用してもよいこととする．
+また，\verb|\tabcolsep|などを使って各セルの横方向を詰めることは許容する．
+ただし，詰めすぎて読みにくくならないように留意すること．
+
+
+\subsubsection{図の挿入}
+%
+\begin{figure}[t]
+\centering
+\includegraphics[width=3cm]{example-image-a}
+\caption{何らかの図}
+\label{fig:sample}
+\end{figure}
+
+図のキャプションは図の下につける．
+図\ref{fig:sample}は実際の挿入例である．
+
+
+\paragraph{LaTeX版}
+図の挿入は通常\pkg{graphicx}パッケージによって行う（図\ref{fig:sample}参照）．
+クラスオプションにワークフロー（\code{dvipdfmx}等）を指定していれば，各パッケージを読み込む際に何度も同じオプションを指定する必要はない．
+
+
+\paragraph{Word版}
+図の挿入は挿入$\xrightarrow{}$図の機能によって行う．
+図を挿入する場合，挿入した図を選択した際に表示される「図ツール」の「文字列の折り返し」から，「上下」を利用する．
+また，「参考資料」から「図表番号の挿入」を選択し，図表番号と同時にキャプションを付与する．
+
+
+
+\subsubsection{表の挿入}
+図とは異なりキャプションは表本体の上に付ける．
+表\ref{tab:sample1}は実際の挿入例である．
+表\ref{tab:sample2}は表\ref{tab:sample1}のフォントサイズを\verb|\small| (9\,pt) に変更した例である．
+
+
+
+\paragraph{LaTeX版}
+表は\verb|\begin{table}...\end{table}|環境を使う．
+
+\paragraph{Word版}
+表組みもWordの「挿入」から表を追加できる．
+また，図と同様に「参考資料」から「図表番号の挿入」を選択し，図表番号と同時にキャプションを付与する．
+なお，Word版においてはフォントサイズを9\,ptとしてもあまり大きく余白を詰めることはできない．
+
+\begin{table}[t]
+\centering
+\caption{適当な表}
+\label{tab:sample1}
+\begin{tabular}{llcc}
+\hline
+日本語 & Japanese & ほげほげ & ふげふげ\\
+英語 & English & hogehoge & fugefuge\\
+\hline
+\end{tabular}
+\end{table}
+%
+\begin{table}[t]
+\centering
+\small
+\tabcolsep 3pt
+\caption{適当な表(small バージョン)}
+\label{tab:sample2}
+\begin{tabular}{llcccccc}
+\hline
+\      &      &\multicolumn{3}{c}{データ1}&\multicolumn{3}{c}{データ2}\\
+\      & 設定 & Pre. & Rec. &F1 & Pre. & Rec. &F1\\
+\hline
+Model1 & config1 & 23.04 & 30.11 &  25.6 & 23.04 & 30.11 &  25.60\\
+Model2 & config1 & 23.04 & 30.11 & 23.04 & 23.04 & 30.11 & 23.04 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\subsection{謝辞}
+謝辞は，本文の直後に配置する．NLP2022より，謝辞は本文とはみなさないと決定したことにより，本文4ページ以内に含める必要はない．
+よって，参考文献のページに含めてよい（つまり5ページ目に記載してよい）．
+また，謝辞はなくてもよい．
+
+\subsection{参考文献}
+本文または謝辞の直後に，\textbf{参考文献}のセクションを設け，本文の中で参照した参考文献の詳細を列挙する．
+本文中の参照は[1]や[2, 3]といった数字で表記し，その数字に合わせて参考文献を記載することを推奨する．
+ただし，参考文献セクションの体裁については厳密に指定はしない．
+著者の裁量で独自の参考文献のスタイルを用いることができる．
+年次大会の推奨設定は以下とする．
+\begin{quote}
+\verb|\bibliographystyle{junsrt}|\\
+\verb|\bibliography{j_yourrefs}|
+\end{quote}
+%
+また，参考文献が1ページに入りきらない場合，参考文献は独自のスタイルを用いてよいので，フォントサイズを小さくするなどして対応すること．
+\begin{quote}
+\verb|\renewcommand{\bibfont}{\footnotesize}|
+\end{quote}
+
+
+
+LaTeX版の本文で参考文献を参照する際には，\verb|\cite{Article_01}|といった形式で参照する．
+%
+著者の名前は，略記はせずにフルネームを記載することを推奨する．
+
+以下，参照の参考例である．
+\begin{itemize}
+\item 論文誌の参照例 \cite{Article_01}
+\item 本の参照例 \cite{Book_02}
+\item 国際会議の参照例 \cite{Inproc_03}
+\item 技術報告の参照例 \cite{Techrep_05}
+\item Webページの参照例 \cite{Web_06}
+\end{itemize}
+
+Word版では「参考資料$\xrightarrow{}$引用文献の挿入」を利用することを推奨する．引用の方法は，ISO 690: 参照番号を利用する．
+ただし，適切に番号の対応が取られていればWord版引用文献の機能を利用することは必須ではない．
+
+
+\subsection{脚注}
+補足情報を入れるために脚注 (footnote) を利用することができる．\footnote{脚注の例である．}
+脚注はページの下部に9\,ptで表記する．
+また，脚注は論文全体で1から番号をつけ，閉じ括弧などの記号を伴って，どの脚注がどこに対応するか明確にわかるようにする．
+脚注は本文と水平線（横線）で分割される．\footnote{ツールを参照する際に脚注にURLのみで参照する事例が散見されるが，ツールに紐づく文献などを積極的に参考文献にして追加することを推奨する．}
+なお，Word版においては「参考資料$\xrightarrow{}$脚注の挿入」から脚注を利用することができるが，本テンプレートが利用している通り，脚注箇所を明確にするためアラビア数字以外の文字を脚注記号として利用することを推奨する．
+
+
+
+\subsection{付録 (Appendix)}
+\label{sec:appendix}
+本文とは別に付録 (Appendix) を1ページつけることができる．
+付録は，追加の実験結果や詳細な実験設定，式の証明などを著者が記載したい場合に利用することを想定しており，基本的には付録をつける必要はない．
+
+付録に関しては，本サンプルで利用している年次大会指定のフォーマットに従う必要はない．
+ただし，必須要件に入っている上下左右の余白に関しては規定を満たす必要がある．
+付録の本文領域に関しては，どのような形式で付録を作成するかは著者の裁量による．
+
+付録に記載の内容は，賞選考時には考慮されない．
+つまり，賞選考の審査員は賞選考時に付録を読まないことを前提としている．よって，本文から付録を参照する際には，その参照がなくても本文内で議論が完結するような書き方が必要である．逆に付録の情報に基づいた議論が本文中であったとしたら，それは審査で不利に判断される可能性がある．
+
+
+
+投稿時には，本文および謝辞・参考文献に続けて付録を配置し，単一のPDFとして投稿する必要がある．
+また，付録は付録だけで独立した1ページで構成する．
+つまり，本文や参考文献のページ数が上限に達していなくても，付録は独立した1ページが上限となる．
+単一の原稿として作成している場合は，付録の直前で必ず改ページを行い，本文や参考文献とは独立したページとなるように注意する．
+
+
+\section{おわりに}
+投稿論文に関する規定には，必ず満たさなければいけない必須要件（\ref{sec:contents-format1}節）と，賞選考のために満たすことを前提とする要件（\ref{sec:contents-format2}節）の2種類がある．
+
+必須要件は，論文のページ数と余白に関する規定である．必須要件を満たさない論文は不採択になる場合がある．
+一方，賞選考のために満たすことを前提とする要件は，賞選考コスト削減が主な理由であり，満たされていなくても不採択になることはない．
+ただし，一部の賞の選考過程から除外されることがある．
+
+年次大会論文投稿用文書クラス・テンプレートを使った執筆がどうしても自己解決できない場合は，プログラム委員会まで問い合わせること．
+
+
+
+
+
+%%%%  ここまでが本文　4ページ以内
+\newpage
+\section*{謝辞}
+本研究はJSPS科研費 JPxxxxxxxx, JPyyyyyyyy, JPzzzzzzzzの助成を受けたものです．
+（\url{https://www.jsps.go.jp/j-grantsinaid/16_rule/rule.html}の例を引用）
+
+
+% 参考文献
+\bibliographystyle{junsrt}
+\bibliography{j_yourrefs} % ファイル名は適宜自分のbibファイルに置き換える
+
+%%%%  ここまでが本文+参考文献　5ページ以内
+
+
+% 付録(Appendix)
+% 付録を付けない場合は，以下\end{document}以外を全てをコメントアウトする．
+% 本文，参考文献に続けて作成する場合は，必ず \clearpage して新たなページとする
+\clearpage
+% 付録は別ツールで作成して，後で本文PDFに追加する方式でもよい
+\appendix
+% ここ以降はフォーマットを自由に変更可能
+%\onecolumn % onecolumnにしたい時の例
+{付録のサンプル:付録は独立に1ページだけ}
+%\small %　文字サイズを小さくする． 一行23文字 => 26文字
+\section{参考情報}
+本節には，その他，LaTeX版の原稿執筆に有益と考えられる情報を記す．
+
+
+\subsection{長い見出しへの対応}
+\verb|\section|
+や
+\verb|\subsection|
+に与える「見出し文字列」が長く，紙面において複数行に渡るような場合，デフォルトの行取り設定では上下のマージンが小さくなってしまい見栄えが悪くなることがあります．そのような場合は，jlreqクラスの \verb|\ModifyHeading|コマンドを用いて一時的に行取り設定を変更してください．
+
+\begin{quote}
+\verb|\SaveHeading{section}{\restoresection}|
+\verb|\ModifyHeading{section}{|\\
+\verb|   lines=3, % この数字を十分に大きくする|\\
+\verb|}|\\
+\verb|\section{長い長い長い長い長い長い長い長い長い長い長い長い長い長い見出し}|\\
+\verb|\restoresection|
+\end{quote}
+
+なお対象がサブセクションの場合は上記コードの\code{section}をすべて\code{subsection}に読み替えてください．
+
+以下サンプル
+
+\subsubsection{長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い見出し}
+
+何もしない時：セクション名と文章が重なってしまいます．
+
+
+\SaveHeading{subsubsection}{\restoresection}
+\ModifyHeading{subsubsection}{
+  lines=3.2,  % この数字を十分に大きくする
+}
+\subsubsection{長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い長い見出し}
+\restoresection
+
+補正あり．
+セクション名と文章は十分な感覚があり綺麗に整形される．ただし，\code{lines}の数字は手動で調整が必要となる．
+
+
+\subsection{色つけ}
+投稿論文の原稿への色つけに関しては特に規定を設けない．
+図表，本文も含めて，読者がより理解しやすいと著者が判断するのであれば，著者の裁量で自由に行ってよい．
+
+\subsection{hyperref}
+論文内の参考文献，式，セクション等へのハイパーリンクを埋め込みたい場合は，著者の裁量で自由に行うことができる．
+
+
+\subsection{Overleaf}
+原稿執筆時にOverleafを利用して作成する人が多いと思われるが，特定のツールの使い方を年次大会で公式にサポートはしない．
+ただし，利用時のTIPSとして，年次大会配布のファイルを置いただけでは日本語環境が整っていないという意味でコンパイルできない場合がある．
+その場合は，\code{latexmkrc}を用意し，そこに日本語用の設定を記載する．
+詳細はインターネットで検索すれば多くの情報を見つけられるので，そちらに譲る．
+コンパイラはLaTeXを選択する．
+
+\section{ダミーテキスト}
+本節は以下ダミーテキストである．
+
+\subsection{サブセクション1}
+このサブセクションはダミーテキストである．
+\jalipsum[1]{wagahai}
+
+\subsubsection{サブサブセクション1}
+
+\paragraph{パラグラフ}
+ダミーテキストである．
+\jalipsum[3]{wagahai}
+
+\end{document}
