@@ -91,13 +91,22 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 
 ### Overleafの使用時
-* [platex + dvipdfmx](https://github.com/wtsnjp/nlproceedings/tree/nlp2024#文書クラス宣言とクラスオプション) を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
+* [platex + dvipdfmx](https://github.com/anlp-nenji/tree/nlp2024#文書クラス宣言とクラスオプション) を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
+* 日本語で執筆中にコンパイルでエラーが出る際は、以下の内容のlatexmkrcファイルを作成してください。
+```latexmkrc
+$latex = 'platex';
+$bibtex = 'pbibtex';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$makeindex = 'mendex %O -o %D %S';
+$pdf_mode = 3;
+```
+
 
 ## バグ報告
 
 本文書クラスに関するバグや不具合，あるいは改善提案等は GitHub 上の開発リポジトリまでご報告ください．
 
-* <https://github.com/wtsnjp/nlproceedings/issues>
+* <https://github.com/anlp-nenji/nlproceedings/issues>
 
 ## ライセンス
 
