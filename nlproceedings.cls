@@ -93,9 +93,18 @@
 % 欧文フォント（タイムズ系）
 \RequirePackage[full]{textcomp}               % 記号類の補完
 \RequirePackage[defaultsups]{newtxtext}       % 脚注記号は LaTeX 標準のまま
-\RequirePackage[varqu,varl]{inconsolata}      % タイプライタ体
 \RequirePackage[bigdelims,vvarbb]{newtxmath}  % 黒板太字は STIX
 \RequirePackage[cal=boondoxo]{mathalfa}       % 花文字
+
+% タイプライタ体
+\sys_if_engine_luatex:TF
+  {
+    \RequirePackage{fontspec}
+    \setmonofont[StylisticSet={1,3}]{Inconsolatazi4-Regular}
+  }
+  {
+    \RequirePackage[varqu,varl]{inconsolata}
+  }
 
 %% タイトル
 \group_begin:
