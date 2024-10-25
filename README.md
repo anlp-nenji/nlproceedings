@@ -1,8 +1,8 @@
-# NLP2024 文書クラス（v1.0.0 2023-10-11）
+# NLP2025 文書クラス（v1.0.2 2024-10-25）
 
 ## 概要
 
-[言語処理学会第30回年次大会 (NLP2024)](https://www.anlp.jp/nlp2024/) 予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
+[言語処理学会第30回年次大会 (NLP2025)](https://www.anlp.jp/nlp2025/) 予稿集用 LaTeX 文書クラスです．[W3C 日本語組版の要件 (JLREQ)](https://www.w3.org/TR/jlreq/) に準拠することを目指した jlreq クラスをベースにしており，LaTeX による日本語組版で一般によく用いられる pLaTeX, upLaTeX, LuaLaTeX をサポートしています．
 
 ## 動作要件
 
@@ -16,8 +16,8 @@
 
 本文書クラスには，仕上がりを確認するためのサンプル文書が付属しています．同文書は，そのままテンプレートとして用いられることも想定しています．
 
-* ソース：[nlp2024-sample.tex](./nlp2024-sample.tex)
-* PDF：[nlp2024-sample.pdf](./nlp2024-sample.pdf)
+* ソース：[nlp2025-sample.tex](./nlp2025-sample.tex)
+* PDF：[nlp2025-sample.pdf](./nlp2025-sample.pdf)
 
 ## 使い方
 
@@ -31,21 +31,21 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ```tex
 %#!platex
-\documentclass[platex,dvipdfmx]{nlp2024}
+\documentclass[platex,dvipdfmx]{nlp2025}
 ```
 
 **upLaTeX + dvipdfmx を使用する場合**
 
 ```tex
 %#!uplatex
-\documentclass[uplatex,dvipdfmx]{nlp2024}
+\documentclass[uplatex,dvipdfmx]{nlp2025}
 ```
 
 **LuaLaTeX を使用する場合**
 
 ```tex
 %#!lualatex
-\documentclass[lualatex]{nlp2024}
+\documentclass[lualatex]{nlp2025}
 ```
 
 また，本文書クラスには独自オプションがあります．
@@ -91,7 +91,7 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 
 ### Overleafの使用時
-* [platex + dvipdfmx](https://github.com/anlp-nenji/tree/nlp2024#文書クラス宣言とクラスオプション) を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
+* [platex + dvipdfmx](https://github.com/anlp-nenji/tree/nlp2025#文書クラス宣言とクラスオプション) を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
 * 日本語で執筆中にコンパイルでエラーが出る際は、以下の内容のlatexmkrcファイルを作成してください。
 ```latexmkrc
 $latex = 'platex';
