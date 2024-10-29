@@ -13,7 +13,7 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlp2025} {2023-10-25} {1.0.2}
+\ProvidesExplPackage {nlp2025} {2024-10-29} {1.0.2}
   {Japanese document class for the proceedings of NLP2025}
 
 %% メッセージ
