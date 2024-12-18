@@ -1,7 +1,7 @@
 %%
 %% This is file `nlproceedings.cls'.
 %%
-%% Copyright 2020-2021 Takuto ASAKURA
+%% Copyright 2020-2024 Takuto Asakura
 %%
 %% This class is distributed under the MIT License.
 %%
@@ -13,7 +13,7 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlproceedings} {2021-11-30} {1.0.0}
+\ProvidesExplPackage {nlproceedings} {2024-12-18} {1.0.1}
   {Japanese document class for the proceedings of nlproceedings}
 
 %% メッセージ
