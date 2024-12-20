@@ -1,5 +1,5 @@
 %%
-%% This is file `nlproceedings.cls'.
+%% This is file `nlp2025.cls'.
 %%
 %% Copyright 2020-2024 Takuto Asakura
 %%
@@ -13,11 +13,11 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlproceedings} {2024-12-18} {1.0.1}
-  {Japanese document class for the proceedings of nlproceedings}
+\ProvidesExplPackage {nlp2025} {2024-10-29} {1.0.2}
+  {Japanese document class for the proceedings of NLP2025}
 
 %% メッセージ
-\msg_new:nnn { nlproceedings } { disallowed-option }
+\msg_new:nnn { nlp2025 } { disallowed-option }
   { Option~ '#1'~ is~ disallowed;~ skipping. }
 
 %% (u)pTeX 用パッチ類
@@ -58,18 +58,18 @@
     \cs_if_exist:NF \l_keys_key_str
       { \cs_set_eq:NN \l_keys_key_str \l_keys_key_tl }
     \seq_if_in:NoTF \g__nlpr_disallowed_options_seq { \l_keys_key_str }
-      { \msg_warning:nnx { nlproceedings } { disallowed-option } { \l_keys_key_str } }
+      { \msg_warning:nnx { nlp2025 } { disallowed-option } { \l_keys_key_str } }
       { \clist_gput_right:No \g__nlpr_options_clist { \CurrentOption } }
   }
 
 % オプション実行
-\keys_define:nn { nlproceedings / option }
+\keys_define:nn { nlp2025 / option }
   {
     english .bool_gset:N = \g_nlpr_english_bool,
     english .default:n = true,
     unknown .code:n = \__nlpr_process_class_option:
   }
-\ProcessKeysOptions { nlproceedings / option }
+\ProcessKeysOptions { nlp2025 / option }
 \PassOptionsToClass { \g__nlpr_options_clist } { jlreq }
 
 
@@ -132,9 +132,9 @@
 %% 英語対応
 \bool_if:NT \g_nlpr_english_bool
   {
-    \tl_set:Nn \abstractname { Abstract }
     \tl_set:Nn \contentsname { Table~ of~ Contents }
     \tl_set:Nn \refname { References }
+    \tl_set:Nn \abstractname { Abstract }
     \tl_set:Nn \indexname { Index }
     \tl_set:Nn \listfigurename { List~ of~ Figures}
     \tl_set:Nn \figurename { Figure }
