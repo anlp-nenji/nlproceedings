@@ -1,4 +1,4 @@
-# NLProceedings 文書クラス（v1.0.0 2021-11-30）
+# NLProceedings 文書クラス（v1.0.1 2024-12-18）
 
 ## 概要
 
@@ -97,7 +97,7 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 本文書クラスに関するバグや不具合，あるいは改善提案等は GitHub 上の開発リポジトリまでご報告ください．
 
-* <https://github.com/wtsnjp/nlproceedings/issues>
+* <https://github.com/anlp-nenji/nlproceedings/issues>
 
 ## ライセンス
 
@@ -105,4 +105,4 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ---
 
-Takuto ASAKURA
+Takuto Asakura

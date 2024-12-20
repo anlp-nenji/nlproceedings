@@ -5,11 +5,14 @@
 ]{nlproceedings}
 
 % パッケージ
-\usepackage{jlreq-deluxe}     % 多書体化（otf パッケージは使用しない）
 \usepackage{graphicx,xcolor}  % グラフィックス関連
 \usepackage{bxjalipsum}       % ダミーテキスト
-\usepackage{pxrubrica}        % ルビ
 \usepackage{url}
+
+% 以下は(u)pLaTeX用．LuaLaTeX使用時には削除すること
+\usepackage[T1]{fontenc}      % モダンなフォントエンコーディング
+\usepackage{jlreq-deluxe}     % 多書体化（otf パッケージは使用しない）
+\usepackage{pxrubrica}        % ルビ
 
 % 著者用マクロ
 \newcommand{\pkg}[1]{\textsf{#1}}

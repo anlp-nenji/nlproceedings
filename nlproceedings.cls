@@ -1,7 +1,7 @@
 %%
 %% This is file `nlproceedings.cls'.
 %%
-%% Copyright 2020-2021 Takuto ASAKURA
+%% Copyright 2020-2024 Takuto Asakura
 %%
 %% This class is distributed under the MIT License.
 %%
@@ -13,7 +13,7 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlproceedings} {2021-11-30} {1.0.0}
+\ProvidesExplPackage {nlproceedings} {2024-12-18} {1.0.1}
   {Japanese document class for the proceedings of nlproceedings}
 
 %% メッセージ
@@ -93,9 +93,18 @@
 % 欧文フォント（タイムズ系）
 \RequirePackage[full]{textcomp}               % 記号類の補完
 \RequirePackage[defaultsups]{newtxtext}       % 脚注記号は LaTeX 標準のまま
-\RequirePackage[varqu,varl]{inconsolata}      % タイプライタ体
 \RequirePackage[bigdelims,vvarbb]{newtxmath}  % 黒板太字は STIX
 \RequirePackage[cal=boondoxo]{mathalfa}       % 花文字
+
+% タイプライタ体
+\sys_if_engine_luatex:TF
+  {
+    \RequirePackage{fontspec}
+    \setmonofont[StylisticSet={1,3}]{Inconsolatazi4-Regular}
+  }
+  {
+    \RequirePackage[varqu,varl]{inconsolata}
+  }
 
 %% タイトル
 \group_begin:
