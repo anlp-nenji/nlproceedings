@@ -107,6 +107,15 @@
   }
 
 %% タイトル
+% complement \jlreq@keepbaselineskip
+% cf. https://github.com/abenori/jlreq/commit/f565a5f
+\providecommand{\jlreq@keepbaselineskip}[1]{%
+  \begingroup
+    \edef\jlreq@do{\unexpanded{#1}\noexpand\baselineskip=\the\baselineskip}%
+  \expandafter\endgroup
+  \jlreq@do
+}
+
 \group_begin:
 \makeatletter
 \gdef\@maketitle{%
