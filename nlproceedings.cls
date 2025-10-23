@@ -1,7 +1,7 @@
 %%
 %% This is file `nlproceedings.cls'.
 %%
-%% Copyright 2020-2024 Takuto Asakura
+%% Copyright 2020-2025 Takuto Asakura
 %%
 %% This class is distributed under the MIT License.
 %%
@@ -13,7 +13,7 @@
 
 %% クラス宣言
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesExplPackage {nlproceedings} {2024-12-18} {1.0.1}
+\ProvidesExplPackage {nlproceedings} {2025-10-17} {1.0.2}
   {Japanese document class for the proceedings of nlproceedings}
 
 %% メッセージ
@@ -107,6 +107,15 @@
   }
 
 %% タイトル
+% complement \jlreq@keepbaselineskip
+% cf. https://github.com/abenori/jlreq/commit/f565a5f
+\providecommand{\jlreq@keepbaselineskip}[1]{%
+  \begingroup
+    \edef\jlreq@do{\unexpanded{#1}\noexpand\baselineskip=\the\baselineskip}%
+  \expandafter\endgroup
+  \jlreq@do
+}
+
 \group_begin:
 \makeatletter
 \gdef\@maketitle{%

@@ -1,4 +1,4 @@
-# NLProceedings 文書クラス（v1.0.1 2024-12-18）
+# NLProceedings 文書クラス（v1.0.2 2025-10-17）
 
 ## 概要
 
