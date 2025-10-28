@@ -1,4 +1,4 @@
-# NLProceedings 文書クラス（v1.0.2 2025-10-17）
+# NLP2026 文書クラス（v1.0.2 2025-10-17）
 
 ## 概要
 
@@ -20,8 +20,8 @@
 
 本文書クラスには，仕上がりを確認するためのサンプル文書が付属しています．同文書は，そのままテンプレートとして用いられることも想定しています．
 
-* ソース：[nlproceedings-sample.tex](./nlproceedings-sample.tex)
-* PDF：[nlproceedings-sample.pdf](./nlproceedings-sample.pdf)
+* ソース：[nlp2026-sample.tex](./nlp2026-sample.tex)
+* PDF：[nlp2026-sample.pdf](./nlp2026-sample.pdf)
 
 ## 使い方
 
@@ -35,21 +35,21 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 
 ```tex
 %#!platex
-\documentclass[platex,dvipdfmx]{nlproceedings}
+\documentclass[platex,dvipdfmx]{nlp2026}
 ```
 
 **upLaTeX + dvipdfmx を使用する場合**
 
 ```tex
 %#!uplatex
-\documentclass[uplatex,dvipdfmx]{nlproceedings}
+\documentclass[uplatex,dvipdfmx]{nlp2026}
 ```
 
 **LuaLaTeX を使用する場合**
 
 ```tex
 %#!lualatex
-\documentclass[lualatex]{nlproceedings}
+\documentclass[lualatex]{nlp2026}
 ```
 
 また，本文書クラスには独自オプションがあります．
