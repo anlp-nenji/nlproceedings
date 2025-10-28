@@ -94,7 +94,7 @@ LaTeX 標準の通り `\documentclass` により行います．その際，使�
 なお対象がサブセクションの場合は上記コードの “section” をすべて “subsection” に読み替えてください．
 
 ### Overleafの使用時
-* [platex + dvipdfmx](https://github.com/anlp-nenji/tree/nlp2025#文書クラス宣言とクラスオプション) を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
+* [platex + dvipdfmx](https://github.com/anlp-nenji/nlproceedings/tree/nlp2026#文書クラス宣言とクラスオプション) を使用し，Overleaf上のMenuからCompiler をLaTeXにするとコンパイルすることができます．
 * 日本語で執筆中にコンパイルでエラーが出る際は、以下の内容のlatexmkrcファイルを作成してください。
 ```latexmkrc
 $latex = 'platex';
